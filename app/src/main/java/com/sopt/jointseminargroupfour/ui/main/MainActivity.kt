@@ -1,6 +1,5 @@
 package com.sopt.jointseminargroupfour.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.sopt.jointseminargroupfour.R
 import com.sopt.jointseminargroupfour.databinding.ActivityMainBinding
