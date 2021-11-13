@@ -1,75 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/iv_restaurant_image"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/pizza_hut" />
+    <data>
 
-    <TextView
-        android:id="@+id/tv_restaurant_name"
+        <variable
+            name="data"
+            type="com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantItemData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/iv_restaurant_image"
-        app:layout_constraintTop_toBottomOf="@id/iv_restaurant_image"
-        tools:text="피자헛" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#232a35"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@id/tv_restaurant_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_restaurant_name"
-        tools:text="20~25분" />
+        <ImageView
+            android:id="@+id/iv_restaurant_image"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:src="@{data.image}"
+            tools:src="@drawable/img_store_1" />
 
-    <ImageView
-        android:id="@+id/iv_star"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="4dp"
-        android:contentDescription="즐겨찾기"
-        android:src="@drawable/ic_star"
-        app:layout_constraintStart_toStartOf="@id/tv_restaurant_name"
-        app:layout_constraintTop_toBottomOf="@id/tv_restaurant_name" />
+        <ImageView
+            android:id="@+id/iv_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="9dp"
+            android:src="@drawable/ic_heart_unselected"
+            app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_image"
+            app:layout_constraintEnd_toEndOf="@id/iv_restaurant_image" />
 
-    <TextView
-        android:id="@+id/tv_rate_and_distance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:textColor="#232a35"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_star"
-        app:layout_constraintStart_toEndOf="@id/iv_star"
-        app:layout_constraintTop_toTopOf="@id/iv_star"
-        tools:text="4.8(4,805)  2.2km" />
+        <TextView
+            android:id="@+id/tv_restaurant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{data.name}"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/iv_restaurant_image"
+            app:layout_constraintTop_toBottomOf="@id/iv_restaurant_image"
+            tools:text="피자헛" />
 
-    <TextView
-        android:id="@+id/tv_free_delivery_chip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/shape_gray_chip"
-        android:text="무료배달"
-        android:paddingHorizontal="4dp"
-        android:textColor="@color/white"
-        android:textSize="9sp"
-        app:layout_constraintStart_toStartOf="@id/iv_star"
-        app:layout_constraintTop_toBottomOf="@id/iv_star" />
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.time}"
+            android:textColor="#232a35"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_restaurant_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_restaurant_name"
+            tools:text="20~25분" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_star"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="즐겨찾기"
+            android:src="@drawable/ic_star"
+            app:layout_constraintStart_toStartOf="@id/tv_restaurant_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_restaurant_name" />
+
+        <TextView
+            android:id="@+id/tv_rate_and_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@{data.rateAndDistance}"
+            android:textColor="#232a35"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_star"
+            app:layout_constraintStart_toEndOf="@id/iv_star"
+            app:layout_constraintTop_toTopOf="@id/iv_star"
+            tools:text="4.8(4,805)  2.2km" />
+
+        <TextView
+            android:id="@+id/tv_free_delivery_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_gray_chip"
+            android:paddingHorizontal="4dp"
+            android:text="무료배달"
+            android:textColor="@color/white"
+            android:textSize="9sp"
+            app:layout_constraintStart_toStartOf="@id/iv_star"
+            app:layout_constraintTop_toBottomOf="@id/iv_star" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
