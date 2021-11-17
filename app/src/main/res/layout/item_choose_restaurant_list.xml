@@ -23,7 +23,7 @@
             app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:src="@{data.chooseImage}"
+            app:src="@{data.image}"
             tools:src="@drawable/img_store_6" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@{data.chooseName}"
+            android:text="@{data.name}"
             android:textColor="#232a35"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -43,7 +43,7 @@
             android:id="@+id/tv_choose_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{data.chooseTime}"
+            android:text="@{data.time}"
             android:textColor="#232a35"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_choose_restaurant_name"
@@ -55,7 +55,7 @@
             android:id="@+id/tv_distance_and_deliveryfee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{data.DistanceAndDeliveryfee}"
+            android:text="@{data.distanceAndDeliveryfee}"
             android:textColor="#232a35"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@+id/tv_choose_restaurant_name"

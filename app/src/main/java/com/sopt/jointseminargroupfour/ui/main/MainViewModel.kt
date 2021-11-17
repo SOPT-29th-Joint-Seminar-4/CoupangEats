@@ -45,22 +45,28 @@ class MainViewModel : ViewModel() {
     fun getChooseRestaurantOptionData(): List<ChooseRestaurantOptionData> {
         return listOf(
             ChooseRestaurantOptionData(
-               "추천순"
+               "추천순",
+                2
             ),
             ChooseRestaurantOptionData(
-                "치타배달"
+                "치타배달",
+                1
             ),
             ChooseRestaurantOptionData(
-                "배달비"
+                "배달비",
+                2
             ),
             ChooseRestaurantOptionData(
-                "최소주문"
+                "최소주문",
+                2
             ),
             ChooseRestaurantOptionData(
-                "포장"
+                "포장",
+                1
             ),
             ChooseRestaurantOptionData(
-                "할인쿠폰"
+                "할인쿠폰",
+                1
             )
 
 

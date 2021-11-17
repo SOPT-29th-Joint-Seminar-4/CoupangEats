@@ -1,5 +1,6 @@
 package com.sopt.jointseminargroupfour.ui.main.adapter
 
 data class ChooseRestaurantOptionData(
-    val option: String
+    val option: String,
+    val viewType: Int
 )
