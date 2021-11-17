@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.sopt.jointseminargroupfour.ui.main.adapter.ChooseRestaurantItemData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_choose_restaurant_image"
+            android:layout_width="330dp"
+            android:layout_height="171dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:src="@{data.chooseImage}"
+            tools:src="@drawable/img_store_6" />
+
+        <TextView
+            android:id="@+id/tv_choose_restaurant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{data.chooseName}"
+            android:textColor="#232a35"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/iv_choose_restaurant_image"
+            app:layout_constraintTop_toBottomOf="@id/iv_choose_restaurant_image"
+            tools:text="뫼루니 참치초밥" />
+
+        <TextView
+            android:id="@+id/tv_choose_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.chooseTime}"
+            android:textColor="#232a35"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_choose_restaurant_name"
+            app:layout_constraintEnd_toEndOf="@+id/iv_choose_restaurant_image"
+            app:layout_constraintTop_toTopOf="@id/tv_choose_restaurant_name"
+            tools:text="16~26분" />
+
+        <TextView
+            android:id="@+id/tv_distance_and_deliveryfee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.DistanceAndDeliveryfee}"
+            android:textColor="#232a35"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_choose_restaurant_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_choose_restaurant_name"
+            tools:text="1.7km   배달비 3,000원" />
+
+        <TextView
+            android:id="@+id/tv_new_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_red_chip"
+            android:paddingLeft="5dp"
+            android:paddingTop="1dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="1dp"
+            android:text="신규"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_distance_and_deliveryfee"
+            app:layout_constraintTop_toBottomOf="@+id/tv_distance_and_deliveryfee"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_packaging_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/shape_black_chip"
+            android:paddingLeft="5dp"
+            android:paddingTop="1dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="1dp"
+            android:text="포장"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_new_chip"
+            app:layout_constraintTop_toTopOf="@+id/tv_new_chip" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
