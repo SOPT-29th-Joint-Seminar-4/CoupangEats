@@ -15,8 +15,8 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:src="@drawable/img_store_6" />
 
-    <ImageView
-        android:id="@+id/iv_heart"
+    <ImageButton
+        android:id="@+id/btn_heart"
         android:layout_width="20dp"
         android:layout_height="17dp"
         app:layout_constraintEnd_toEndOf="@id/iv_menu"

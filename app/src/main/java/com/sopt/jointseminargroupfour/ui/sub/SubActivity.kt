@@ -15,6 +15,8 @@ class SubActivity: BaseView.BaseActivity<ActivitySubBinding>(R.layout.activity_s
 
         initAdapter()
 
+        initBackBtn()
+
         setContentView(binding.root)
     }
 
@@ -52,6 +54,7 @@ class SubActivity: BaseView.BaseActivity<ActivitySubBinding>(R.layout.activity_s
                     "꽃게 새우 오징어 갑오징어 바지락 홍합\n 토마토소스와 누룽지가 들어간 매콤한 파스타..."
                 )
 
+
             )
         )
 
@@ -59,4 +62,11 @@ class SubActivity: BaseView.BaseActivity<ActivitySubBinding>(R.layout.activity_s
 
         recommendedMenuAdapter.notifyDataSetChanged()
     }
+
+    private fun initBackBtn(){
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+    }
+
 }

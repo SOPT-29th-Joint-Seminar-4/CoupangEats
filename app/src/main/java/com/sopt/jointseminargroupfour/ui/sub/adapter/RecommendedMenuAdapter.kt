@@ -36,6 +36,7 @@ class RecommendedMenuAdapter : RecyclerView.Adapter<RecommendedMenuAdapter.Recom
                 Glide.with(binding.ivMenu)
                     .load(data.image)
                     .into(binding.ivMenu)
+
                 binding.tvRestaurant.text = data.restaurant
                 binding.tvMenu.text = data.menu
                 binding.tvSatisfyingMenu.text = data.satisfyingMenu
