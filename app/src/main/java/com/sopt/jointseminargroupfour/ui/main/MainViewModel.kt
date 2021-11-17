@@ -2,6 +2,7 @@ package com.sopt.jointseminargroupfour.ui.main
 
 import androidx.lifecycle.ViewModel
 import com.sopt.jointseminargroupfour.R
+import com.sopt.jointseminargroupfour.ui.main.adapter.ChooseRestaurantOptionData
 import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantItemData
 
 class MainViewModel : ViewModel() {
@@ -37,6 +38,31 @@ class MainViewModel : ViewModel() {
                 "15~25분",
                 "4.7(562) 1.4km"
             )
+        )
+    }
+
+    fun getChooseRestaurantOptionData(): List<ChooseRestaurantOptionData> {
+        return listOf(
+            ChooseRestaurantOptionData(
+               "추천순"
+            ),
+            ChooseRestaurantOptionData(
+                "치타배달"
+            ),
+            ChooseRestaurantOptionData(
+                "배달비"
+            ),
+            ChooseRestaurantOptionData(
+                "최소주문"
+            ),
+            ChooseRestaurantOptionData(
+                "포장"
+            ),
+            ChooseRestaurantOptionData(
+                "할인쿠폰"
+            )
+
+
         )
     }
 }
