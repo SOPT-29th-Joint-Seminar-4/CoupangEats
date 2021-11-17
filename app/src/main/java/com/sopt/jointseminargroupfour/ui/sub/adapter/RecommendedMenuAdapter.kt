@@ -42,6 +42,12 @@ class RecommendedMenuAdapter : RecyclerView.Adapter<RecommendedMenuAdapter.Recom
                 binding.tvSatisfyingMenu.text = data.satisfyingMenu
                 binding.tvPrice.text = data.price
                 binding.tvDescription.text = data.description
+
+                // "찜"버튼
+                binding.btnHeart.setOnClickListener {
+                        binding.btnHeart.isSelected = binding.btnHeart.isSelected != true
+                }
+
             }
         }
 
