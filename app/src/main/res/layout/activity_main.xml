@@ -84,6 +84,7 @@
                     android:id="@+id/rv_food_type"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:paddingStart="6dp"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"

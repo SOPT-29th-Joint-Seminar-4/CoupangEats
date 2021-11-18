@@ -5,6 +5,8 @@ import androidx.activity.viewModels
 import com.sopt.jointseminargroupfour.R
 import com.sopt.jointseminargroupfour.databinding.ActivityMainBinding
 import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantAdapter
+import com.sopt.jointseminargroupfour.ui.main.adapter.FoodTypeAdapter
+import com.sopt.jointseminargroupfour.ui.main.adapter.FoodTypeData
 import com.sopt.jointseminargroupfour.util.BaseView
 
 class MainActivity : BaseView.BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -14,11 +16,18 @@ class MainActivity : BaseView.BaseActivity<ActivityMainBinding>(R.layout.activit
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initRestaurantAdapter()
+        initFoodListAdapter()
     }
 
     private fun initRestaurantAdapter() {
         val eatsRestaurantAdapter = EatsRestaurantAdapter()
         eatsRestaurantAdapter.initItemList(viewModel.getRestaurantData())
         binding.rvEatsRestaurantList.adapter = eatsRestaurantAdapter
+    }
+
+    private fun initFoodListAdapter() {
+        val foodTypeAdapter = FoodTypeAdapter()
+        foodTypeAdapter.initItemList(viewModel.getFoodTypeData())
+        binding.rvFoodType.adapter = foodTypeAdapter
     }
 }

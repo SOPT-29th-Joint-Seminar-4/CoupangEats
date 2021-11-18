@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.sopt.jointseminargroupfour.R
 import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantItemData
 import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantViewType
+import com.sopt.jointseminargroupfour.ui.main.adapter.FoodTypeData
 
 class MainViewModel : ViewModel() {
     fun getRestaurantData(): List<EatsRestaurantItemData> {
@@ -40,6 +41,52 @@ class MainViewModel : ViewModel() {
             ),
             EatsRestaurantItemData(
                 itemViewType = EatsRestaurantViewType.SEE_MORE
+            )
+        )
+    }
+
+    fun getFoodTypeData(): List<FoodTypeData> {
+        return listOf(
+            FoodTypeData(
+                "신규 맛집",
+                R.drawable.food1,
+                true
+            ),
+            FoodTypeData(
+                "1인분",
+                R.drawable.food2,
+            ),
+            FoodTypeData(
+                "한식",
+                R.drawable.food3,
+            ),
+            FoodTypeData(
+                "치킨",
+                R.drawable.food4,
+            ),
+            FoodTypeData(
+                "분식",
+                R.drawable.food5,
+            ),
+            FoodTypeData(
+                "돈까스",
+                R.drawable.food6,
+            ),
+            FoodTypeData(
+                "족발/보쌈",
+                R.drawable.food7,
+            ),
+            FoodTypeData(
+                "샌드위치",
+                R.drawable.food8,
+            ),
+            FoodTypeData(
+                "커피",
+                R.drawable.food9,
+            ),
+            FoodTypeData(
+                "디저트",
+                R.drawable.food10,
             )
         )
     }
