@@ -88,7 +88,8 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_top_ad" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_top_ad"
+                    tools:listitem="@layout/item_food_type" />
 
                 <View
                     android:id="@+id/ll_div_1"
@@ -132,7 +133,8 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_restaurant_more" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_restaurant_more"
+                    tools:listitem="@layout/item_restaurant_list" />
 
                 <!--여기 아래에서부터 작성하시면 됩니다-->
 

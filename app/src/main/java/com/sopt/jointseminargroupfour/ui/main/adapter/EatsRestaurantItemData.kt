@@ -4,8 +4,9 @@ import androidx.annotation.DrawableRes
 
 data class EatsRestaurantItemData(
     @DrawableRes
-    val image: Int,
-    val name: String,
-    val time: String,
-    val rateAndDistance: String,
+    val image: Int = -1,
+    val name: String = "",
+    val time: String = "",
+    val rateAndDistance: String = "",
+    val itemViewType: EatsRestaurantViewType = EatsRestaurantViewType.RESTAURANT
 )

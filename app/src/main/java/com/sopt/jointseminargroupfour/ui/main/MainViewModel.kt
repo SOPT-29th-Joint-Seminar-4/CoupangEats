@@ -3,6 +3,7 @@ package com.sopt.jointseminargroupfour.ui.main
 import androidx.lifecycle.ViewModel
 import com.sopt.jointseminargroupfour.R
 import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantItemData
+import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantViewType
 
 class MainViewModel : ViewModel() {
     fun getRestaurantData(): List<EatsRestaurantItemData> {
@@ -36,6 +37,9 @@ class MainViewModel : ViewModel() {
                 "샐리디",
                 "15~25분",
                 "4.7(562) 1.4km"
+            ),
+            EatsRestaurantItemData(
+                itemViewType = EatsRestaurantViewType.SEE_MORE
             )
         )
     }
