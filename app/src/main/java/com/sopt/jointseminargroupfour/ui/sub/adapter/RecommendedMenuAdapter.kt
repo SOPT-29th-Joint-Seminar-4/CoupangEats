@@ -45,7 +45,7 @@ class RecommendedMenuAdapter : RecyclerView.Adapter<RecommendedMenuAdapter.Recom
 
                 // "찜"버튼
                 binding.btnHeart.setOnClickListener {
-                        binding.btnHeart.isSelected = binding.btnHeart.isSelected != true
+                        binding.btnHeart.isSelected = !binding.btnHeart.isSelected
                 }
 
             }
