@@ -92,6 +92,33 @@
                     app:layout_constraintTop_toBottomOf="@id/iv_top_ad"
                     tools:listitem="@layout/item_food_type" />
 
+                <ImageView
+                    android:id="@+id/iv_mid_ad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/mid_ad"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_food_type" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_reco_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:backgroundTint="@color/main_orange"
+                    android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
+                    android:minHeight="0dp"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="2dp"
+                    android:text="추천메뉴 보기"
+                    android:textSize="12sp"
+                    app:cornerRadius="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_mid_ad"
+                    app:layout_constraintStart_toStartOf="@id/iv_mid_ad" />
+
                 <View
                     android:id="@+id/ll_div_1"
                     android:layout_width="0dp"
@@ -99,7 +126,7 @@
                     android:background="#F4F6F8"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rv_food_type" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_mid_ad" />
 
                 <TextView
                     android:id="@+id/tv_only_in_eats"
