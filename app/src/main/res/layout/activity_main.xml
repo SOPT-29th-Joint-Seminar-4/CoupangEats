@@ -84,8 +84,8 @@
                     android:id="@+id/rv_food_type"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:paddingStart="6dp"
                     android:orientation="horizontal"
+                    android:paddingStart="6dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -136,6 +136,14 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_restaurant_more"
                     tools:listitem="@layout/item_restaurant_list" />
+
+                <!--todo 아래는 스크롤 확인용으로 추가해둔것이어서 지우기-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_eats_restaurant_list" />
 
                 <!--여기 아래에서부터 작성하시면 됩니다-->
 
