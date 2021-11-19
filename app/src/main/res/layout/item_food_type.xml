@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.sopt.jointseminargroupfour.ui.main.adapter.FoodTypeData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp">
+
+        <ImageView
+            android:id="@+id/iv_plate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="음식 타입"
+            android:elevation="4dp"
+            android:src="@drawable/ic_circle_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            android:src="@drawable/shape_orange_circle_view"
+            android:visibility="@{data.isNew ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="@id/iv_plate"
+            app:layout_constraintTop_toTopOf="@id/iv_plate" />
+
+        <TextView
+            android:id="@+id/tv_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            android:text="NEW"
+            android:textColor="@color/white"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_new"
+            app:layout_constraintEnd_toEndOf="@id/iv_new"
+            app:layout_constraintStart_toStartOf="@id/iv_new"
+            app:layout_constraintTop_toTopOf="@id/iv_new" />
+
+        <ImageView
+            android:id="@+id/iv_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="음식 타입"
+            android:elevation="5dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_plate"
+            app:layout_constraintEnd_toEndOf="@id/iv_plate"
+            app:layout_constraintStart_toStartOf="@id/iv_plate"
+            app:layout_constraintTop_toTopOf="@id/iv_plate"
+            app:src="@{data.image}"
+            tools:src="@drawable/food1" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.name}"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_plate"
+            app:layout_constraintStart_toStartOf="@id/iv_plate"
+            app:layout_constraintTop_toBottomOf="@id/iv_plate"
+            tools:text="신규 맛집" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

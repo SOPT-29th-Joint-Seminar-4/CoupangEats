@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingVertical="20dp"
+    android:paddingHorizontal="16dp">
+
+    <ImageView
+        android:id="@+id/iv_menu"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:src="@drawable/img_store_6_temp" />
+
+    <ImageButton
+        android:id="@+id/btn_heart"
+        android:layout_width="20dp"
+        android:layout_height="17dp"
+        app:layout_constraintEnd_toEndOf="@id/iv_menu"
+        app:layout_constraintBottom_toBottomOf="@id/iv_menu"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/selector_heart" />
+
+    <TextView
+        android:id="@+id/tv_restaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="둘둘치킨 서현점"
+        android:textSize="12dp"
+        android:textColor="#232A35"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/iv_menu"
+        app:layout_constraintStart_toEndOf="@id/iv_menu"
+        android:layout_marginStart="9dp" />
+
+    <TextView
+        android:id="@+id/tv_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="후라이드치킨"
+        android:textSize="10dp"
+        android:textColor="#232A35"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@id/tv_restaurant"
+        app:layout_constraintTop_toBottomOf="@id/tv_restaurant"
+        android:layout_marginTop="1dp"/>
+
+    <TextView
+        android:id="@+id/tv_satisfying_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="46명이 만족한 메뉴"
+        android:textSize="12dp"
+        android:textColor="#ED702D"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_menu"
+        app:layout_constraintStart_toStartOf="@+id/tv_menu"
+        android:layout_marginTop="3dp"/>
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="18,000원"
+        android:textSize="12dp"
+        android:textColor="#232A35"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_satisfying_menu"
+        app:layout_constraintStart_toStartOf="@+id/tv_satisfying_menu"/>
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="새 식용유를 매일 사용하여 건강하고 깨끗한 맛, \n 얇은 튀김옷으로 칼로리를 낮춘 담백한 치킨."
+        android:textSize="11dp"
+        android:textColor="#939DA9"
+        android:textStyle="normal"
+        app:layout_constraintTop_toBottomOf="@id/tv_price"
+        app:layout_constraintStart_toStartOf="@+id/tv_price"/>
+
+    <TextView
+        android:id="@+id/btn_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="바로 주문"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/tv_description"
+        app:layout_constraintStart_toStartOf="@id/tv_description"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/btn_sub_rectangle"
+        android:paddingVertical="7dp"
+        android:paddingHorizontal="29dp" />
+
+    <TextView
+        android:id="@+id/btn_restaurant_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="가게 둘러보기"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="@id/btn_order"
+        app:layout_constraintStart_toEndOf="@id/btn_order"
+        android:background="@drawable/btn_sub_rectangle"
+        android:paddingVertical="7dp"
+        android:paddingHorizontal="18dp"
+        android:layout_marginStart="5dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

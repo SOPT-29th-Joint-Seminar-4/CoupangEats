@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">JointSeminarGroupFour</string>
+    <string name="sub_title">우리동네 인기메뉴</string>
+    <string name="sub_count">총 N개</string>
 </resources>
