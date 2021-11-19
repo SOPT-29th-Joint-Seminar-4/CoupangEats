@@ -5,9 +5,10 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.sopt.jointseminargroupfour.R
 import com.sopt.jointseminargroupfour.databinding.ActivityMainBinding
+import com.sopt.jointseminargroupfour.ui.main.adapter.ChooseRestaurantAdapter
+import com.sopt.jointseminargroupfour.ui.main.adapter.ChooseRestaurantOptionAdapter
 import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantAdapter
 import com.sopt.jointseminargroupfour.ui.main.adapter.FoodTypeAdapter
-import com.sopt.jointseminargroupfour.ui.main.adapter.FoodTypeData
 import com.sopt.jointseminargroupfour.ui.sub.SubActivity
 import com.sopt.jointseminargroupfour.util.BaseView
 
@@ -18,6 +19,8 @@ class MainActivity : BaseView.BaseActivity<ActivityMainBinding>(R.layout.activit
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initRestaurantAdapter()
+        initChooseRestaurantOptionAdapter()
+        initChooseRestaurantAdapter()
         initFoodListAdapter()
         initRecommendButton()
     }
@@ -26,6 +29,18 @@ class MainActivity : BaseView.BaseActivity<ActivityMainBinding>(R.layout.activit
         val eatsRestaurantAdapter = EatsRestaurantAdapter()
         eatsRestaurantAdapter.initItemList(viewModel.getRestaurantData())
         binding.rvEatsRestaurantList.adapter = eatsRestaurantAdapter
+    }
+
+    private fun initChooseRestaurantOptionAdapter() {
+        val chooseRestaurantOptionAdapter = ChooseRestaurantOptionAdapter()
+        chooseRestaurantOptionAdapter.initItemList(viewModel.getChooseRestaurantOptionData())
+        binding.rvChooseRestaurantOptionList.adapter = chooseRestaurantOptionAdapter
+    }
+
+    private fun initChooseRestaurantAdapter() {
+        val chooseRestaurantAdapter = ChooseRestaurantAdapter()
+        chooseRestaurantAdapter.initItemList(viewModel.getChooseRestaurantData())
+        binding.rvChooseRestaurantList.adapter = chooseRestaurantAdapter
     }
 
     private fun initFoodListAdapter() {

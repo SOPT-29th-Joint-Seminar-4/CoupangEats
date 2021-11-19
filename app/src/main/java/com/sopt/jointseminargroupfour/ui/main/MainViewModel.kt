@@ -2,6 +2,8 @@ package com.sopt.jointseminargroupfour.ui.main
 
 import androidx.lifecycle.ViewModel
 import com.sopt.jointseminargroupfour.R
+import com.sopt.jointseminargroupfour.ui.main.adapter.ChooseRestaurantItemData
+import com.sopt.jointseminargroupfour.ui.main.adapter.ChooseRestaurantOptionData
 import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantItemData
 import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantViewType
 import com.sopt.jointseminargroupfour.ui.main.adapter.FoodTypeData
@@ -88,6 +90,54 @@ class MainViewModel : ViewModel() {
                 "디저트",
                 R.drawable.food10,
             )
+        )
+    }
+
+    fun getChooseRestaurantOptionData(): List<ChooseRestaurantOptionData> {
+        return listOf(
+            ChooseRestaurantOptionData(
+               "추천순",
+                2
+            ),
+            ChooseRestaurantOptionData(
+                "치타배달",
+                1
+            ),
+            ChooseRestaurantOptionData(
+                "배달비",
+                2
+            ),
+            ChooseRestaurantOptionData(
+                "최소주문",
+                2
+            ),
+            ChooseRestaurantOptionData(
+                "포장",
+                1
+            ),
+            ChooseRestaurantOptionData(
+                "할인쿠폰",
+                1
+            )
+
+
+        )
+    }
+
+    fun getChooseRestaurantData(): List<ChooseRestaurantItemData> {
+        return listOf(
+            ChooseRestaurantItemData(
+                R.drawable.img_store_6_temp,
+                "뫼루니 참치초밥",
+                "1.7km   배달비 3,000원",
+                "16-26분"
+            ),
+            ChooseRestaurantItemData(
+                R.drawable.img_store_6_temp,
+                "뫼루니 참치초밥",
+                "1.7km   배달비 3,000원",
+                "16-26분"
+            ),
         )
     }
 }
