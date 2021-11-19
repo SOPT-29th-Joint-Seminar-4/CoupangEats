@@ -108,6 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:layout_marginBottom="4dp"
                     android:backgroundTint="@color/main_orange"
                     android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
                     android:minHeight="0dp"
@@ -192,10 +193,10 @@
                     android:id="@+id/rv_choose_restaurant_option_list"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginRight="10dp"
+                    android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -210,7 +211,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/rv_choose_restaurant_option_list" />
-
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
