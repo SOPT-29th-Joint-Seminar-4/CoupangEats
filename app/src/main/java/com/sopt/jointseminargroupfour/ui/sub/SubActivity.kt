@@ -47,7 +47,7 @@ class SubActivity: BaseView.BaseActivity<ActivitySubBinding>(R.layout.activity_s
                     "꽃게 새우 오징어 갑오징어 바지락 홍합\n 토마토소스와 누룽지가 들어간 매콤한 파스타..."
                 ),
                 RecommendedMenuItemData(
-                    R.drawable.img_store_6,
+                    R.drawable.img_store_6_temp,
                     "둘둘치킨 서현점",
                     "후라이드치킨",
                     "46명이 만족한 메뉴",
@@ -71,7 +71,7 @@ class SubActivity: BaseView.BaseActivity<ActivitySubBinding>(R.layout.activity_s
                     "꽃게 새우 오징어 갑오징어 바지락 홍합\n 토마토소스와 누룽지가 들어간 매콤한 파스타..."
                 ),
                 RecommendedMenuItemData(
-                    R.drawable.img_store_6,
+                    R.drawable.img_store_6_temp,
                     "둘둘치킨 서현점",
                     "후라이드치킨",
                     "46명이 만족한 메뉴",
