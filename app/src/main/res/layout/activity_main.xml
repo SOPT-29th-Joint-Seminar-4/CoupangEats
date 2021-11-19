@@ -166,6 +166,52 @@
 
                 <!--여기 아래에서부터 작성하시면 됩니다-->
 
+                <View
+                    android:id="@+id/ll_div_2"
+                    android:layout_width="0dp"
+                    android:layout_height="16dp"
+                    android:background="#F4F6F8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_eats_restaurant_list" />
+
+                <TextView
+                    android:id="@+id/tv_choose_restaurant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:text="골라먹는 맛집"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_div_2" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_choose_restaurant_option_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_choose_restaurant" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_choose_restaurant_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_choose_restaurant_option_list" />
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

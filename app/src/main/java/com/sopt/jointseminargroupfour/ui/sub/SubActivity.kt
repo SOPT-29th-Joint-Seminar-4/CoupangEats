@@ -28,7 +28,7 @@ class SubActivity: BaseView.BaseActivity<ActivitySubBinding>(R.layout.activity_s
         recommendedMenuAdapter.recommendedMenuList.addAll(
             listOf(
                 RecommendedMenuItemData(
-                    R.drawable.img_store_6,
+                    R.drawable.img_store_6_temp,
                     "둘둘치킨 서현점",
                     "후라이드치킨",
                     "46명이 만족한 메뉴",
