@@ -1,14 +1,32 @@
 package com.sopt.jointseminargroupfour.ui.main
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.sopt.jointseminargroupfour.R
-import com.sopt.jointseminargroupfour.ui.main.adapter.ChooseRestaurantItemData
-import com.sopt.jointseminargroupfour.ui.main.adapter.ChooseRestaurantOptionData
-import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantItemData
-import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantViewType
-import com.sopt.jointseminargroupfour.ui.main.adapter.FoodTypeData
+import com.sopt.jointseminargroupfour.data.ServiceCreator
+import com.sopt.jointseminargroupfour.ui.main.adapter.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
+
+    private val ioDispatcher = Dispatchers.IO
+    private val _bannerImageUrl = MutableLiveData<String>()
+    val bannerImageUrl: LiveData<String> get() = _bannerImageUrl
+
+    init {
+        getMainBanner()
+    }
+
+    private fun getMainBanner() {
+        viewModelScope.launch(ioDispatcher) {
+            val soptService = ServiceCreator.soptService.getMainBanner()
+            _bannerImageUrl.postValue(soptService.data[0].image)
+        }
+    }
+
     fun getRestaurantData(): List<EatsRestaurantItemData> {
         return listOf(
             EatsRestaurantItemData(
@@ -96,7 +114,7 @@ class MainViewModel : ViewModel() {
     fun getChooseRestaurantOptionData(): List<ChooseRestaurantOptionData> {
         return listOf(
             ChooseRestaurantOptionData(
-               "추천순",
+                "추천순",
                 2
             ),
             ChooseRestaurantOptionData(

@@ -1,6 +1,20 @@
 package com.sopt.jointseminargroupfour.data
 
-// todo data class 추가
+import retrofit2.http.GET
+import retrofit2.http.Headers
+
+data class BannerResponse(
+    val response: ServiceResponse,
+    val data: List<ImageData>
+) {
+    data class ImageData(
+        val id: Int,
+        val image: String
+    )
+}
+
 interface SoptService {
-    // todo POST, GET 메서드 추가
+    @Headers("Content-Type: application/json")
+    @GET("banner")
+    suspend fun getMainBanner(): BannerResponse
 }

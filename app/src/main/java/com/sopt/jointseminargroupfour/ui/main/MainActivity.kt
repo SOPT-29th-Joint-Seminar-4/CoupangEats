@@ -3,6 +3,7 @@ package com.sopt.jointseminargroupfour.ui.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.bumptech.glide.Glide
 import com.sopt.jointseminargroupfour.R
 import com.sopt.jointseminargroupfour.databinding.ActivityMainBinding
 import com.sopt.jointseminargroupfour.ui.main.adapter.ChooseRestaurantAdapter
@@ -23,6 +24,7 @@ class MainActivity : BaseView.BaseActivity<ActivityMainBinding>(R.layout.activit
         initChooseRestaurantAdapter()
         initFoodListAdapter()
         initRecommendButton()
+        observeBannerImage()
     }
 
     private fun initRestaurantAdapter() {
@@ -52,6 +54,14 @@ class MainActivity : BaseView.BaseActivity<ActivityMainBinding>(R.layout.activit
     private fun initRecommendButton() {
         binding.btnRecoMenu.setOnClickListener {
             startActivity(Intent(this, SubActivity::class.java))
+        }
+    }
+
+    private fun observeBannerImage() {
+        viewModel.bannerImageUrl.observe(this) { newImageUrl ->
+            Glide.with(binding.ivTopAd)
+                .load(newImageUrl)
+                .into(binding.ivTopAd)
         }
     }
 }
