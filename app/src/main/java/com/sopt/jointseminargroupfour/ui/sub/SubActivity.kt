@@ -1,14 +1,16 @@
 package com.sopt.jointseminargroupfour.ui.sub
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.sopt.jointseminargroupfour.R
 import com.sopt.jointseminargroupfour.databinding.ActivitySubBinding
 import com.sopt.jointseminargroupfour.ui.sub.adapter.RecommendedMenuAdapter
 import com.sopt.jointseminargroupfour.ui.sub.adapter.RecommendedMenuItemData
 import com.sopt.jointseminargroupfour.util.BaseView
 
-class SubActivity: BaseView.BaseActivity<ActivitySubBinding>(R.layout.activity_sub) {
+class SubActivity : BaseView.BaseActivity<ActivitySubBinding>(R.layout.activity_sub) {
     private lateinit var recommendedMenuAdapter: RecommendedMenuAdapter
+    private val viewModel: SubViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +20,7 @@ class SubActivity: BaseView.BaseActivity<ActivitySubBinding>(R.layout.activity_s
     }
 
     private fun initAdapter() {
-        recommendedMenuAdapter = RecommendedMenuAdapter()
+        recommendedMenuAdapter = RecommendedMenuAdapter(viewModel::putLikeButton)
         binding.rvRecommended.adapter = recommendedMenuAdapter
         recommendedMenuAdapter.recommendedMenuList.addAll(
             listOf(
@@ -96,11 +98,11 @@ class SubActivity: BaseView.BaseActivity<ActivitySubBinding>(R.layout.activity_s
                 )
             )
         )
-        binding.tvCount.text ="총 ${recommendedMenuAdapter.itemCount}개"
+        binding.tvCount.text = "총 ${recommendedMenuAdapter.itemCount}개"
         recommendedMenuAdapter.notifyDataSetChanged()
     }
 
-    private fun initBackBtn(){
+    private fun initBackBtn() {
         binding.btnBack.setOnClickListener {
             finish()
         }

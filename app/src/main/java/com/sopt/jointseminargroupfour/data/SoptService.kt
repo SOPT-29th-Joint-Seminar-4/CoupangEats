@@ -1,6 +1,37 @@
 package com.sopt.jointseminargroupfour.data
 
-// todo data class 추가
+import retrofit2.http.GET
+import retrofit2.http.Headers
+import retrofit2.http.PUT
+import retrofit2.http.Path
+
+data class BannerResponse(
+    val response: ServiceResponse,
+    val data: List<ImageData>
+) {
+    data class ImageData(
+        val id: Int,
+        val image: String
+    )
+}
+
+data class ModifyFavoriteShopResponse(
+    val response: ServiceResponse,
+    val data: Like
+) {
+    data class Like(
+        val isLike: Boolean
+    )
+}
+
 interface SoptService {
-    // todo POST, GET 메서드 추가
+    @Headers("Content-Type: application/json")
+    @GET("banner")
+    suspend fun getMainBanner(): BannerResponse
+
+    @Headers("Content-Type: application/json")
+    @PUT("shop/{shopId}")
+    suspend fun putShopId(
+        @Path("shopId") shopId: Int
+    ): ModifyFavoriteShopResponse
 }
