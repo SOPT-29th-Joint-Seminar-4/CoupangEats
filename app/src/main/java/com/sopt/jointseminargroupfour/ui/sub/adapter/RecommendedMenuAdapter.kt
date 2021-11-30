@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.sopt.jointseminargroupfour.databinding.ItemRecommendedMenuListBinding
 
-class RecommendedMenuAdapter : RecyclerView.Adapter<RecommendedMenuAdapter.RecommendedMenuViewHolder>() {
+class RecommendedMenuAdapter(
+    private val likeButtonClickListener: (Int) -> Unit
+) :
+    RecyclerView.Adapter<RecommendedMenuAdapter.RecommendedMenuViewHolder>() {
     val recommendedMenuList = mutableListOf<RecommendedMenuItemData>()
 
     override fun onCreateViewHolder(
@@ -30,25 +33,27 @@ class RecommendedMenuAdapter : RecyclerView.Adapter<RecommendedMenuAdapter.Recom
 
     override fun getItemCount(): Int = recommendedMenuList.size
 
-    class RecommendedMenuViewHolder(private val binding: ItemRecommendedMenuListBinding)
-        : RecyclerView.ViewHolder(binding.root) {
-            fun onBind(data : RecommendedMenuItemData) {
-                Glide.with(binding.ivMenu)
-                    .load(data.image)
-                    .into(binding.ivMenu)
+    inner class RecommendedMenuViewHolder(private val binding: ItemRecommendedMenuListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-                binding.tvRestaurant.text = data.restaurant
-                binding.tvMenu.text = data.menu
-                binding.tvSatisfyingMenu.text = data.satisfyingMenu
-                binding.tvPrice.text = data.price
-                binding.tvDescription.text = data.description
-
-                // "찜"버튼
-                binding.btnHeart.setOnClickListener {
-                        binding.btnHeart.isSelected = !binding.btnHeart.isSelected
-                }
-
+        init {
+            binding.btnHeart.setOnClickListener {
+                binding.btnHeart.isSelected = !binding.btnHeart.isSelected
+                likeButtonClickListener.invoke(adapterPosition + 1) // 1부터 있음
             }
         }
+
+        fun onBind(data: RecommendedMenuItemData) {
+            Glide.with(binding.ivMenu)
+                .load(data.image)
+                .into(binding.ivMenu)
+
+            binding.tvRestaurant.text = data.restaurant
+            binding.tvMenu.text = data.menu
+            binding.tvSatisfyingMenu.text = data.satisfyingMenu
+            binding.tvPrice.text = data.price
+            binding.tvDescription.text = data.description
+        }
+    }
 
 }
