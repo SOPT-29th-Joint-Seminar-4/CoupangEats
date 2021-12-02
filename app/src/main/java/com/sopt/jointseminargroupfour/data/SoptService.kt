@@ -1,5 +1,6 @@
 package com.sopt.jointseminargroupfour.data
 
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.PUT
@@ -34,4 +35,8 @@ interface SoptService {
     suspend fun putShopId(
         @Path("shopId") shopId: Int
     ): ModifyFavoriteShopResponse
+
+    @Headers("Content-Type: application/json")
+    @GET("shop")
+    fun getShop() : Call<ResponseRestaurantData>
 }

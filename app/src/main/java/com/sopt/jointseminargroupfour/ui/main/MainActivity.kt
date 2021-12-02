@@ -2,16 +2,21 @@ package com.sopt.jointseminargroupfour.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import com.bumptech.glide.Glide
 import com.sopt.jointseminargroupfour.R
+import com.sopt.jointseminargroupfour.data.ResponseRestaurantData
+import com.sopt.jointseminargroupfour.data.ServiceCreator
 import com.sopt.jointseminargroupfour.databinding.ActivityMainBinding
-import com.sopt.jointseminargroupfour.ui.main.adapter.ChooseRestaurantAdapter
-import com.sopt.jointseminargroupfour.ui.main.adapter.ChooseRestaurantOptionAdapter
-import com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantAdapter
-import com.sopt.jointseminargroupfour.ui.main.adapter.FoodTypeAdapter
+import com.sopt.jointseminargroupfour.ui.main.adapter.*
 import com.sopt.jointseminargroupfour.ui.sub.SubActivity
 import com.sopt.jointseminargroupfour.util.BaseView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+
 
 class MainActivity : BaseView.BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -19,18 +24,55 @@ class MainActivity : BaseView.BaseActivity<ActivityMainBinding>(R.layout.activit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initRestaurantAdapter()
         initChooseRestaurantOptionAdapter()
         initChooseRestaurantAdapter()
         initFoodListAdapter()
         initRecommendButton()
         observeBannerImage()
+        initNetwork()
     }
 
-    private fun initRestaurantAdapter() {
+    private fun initNetwork(){
+        val call: Call<ResponseRestaurantData> = ServiceCreator.soptService.getShop()
+
+        call.enqueue(object: Callback<ResponseRestaurantData> {
+            override fun onResponse(
+                call: Call<ResponseRestaurantData>,
+                response: Response<ResponseRestaurantData>
+            ) {
+                if(response.isSuccessful) {
+                    val data = response.body()?.data
+                    if (data != null) {
+                        initRestaurantAdapter(data)
+                    }
+                } else {
+                    Log.e("NetworkTest","error")
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseRestaurantData>, t: Throwable) {
+                Log.e("NetworkTest","error:$t")
+            }
+        })
+    }
+
+    private fun initRestaurantAdapter(data: List<ResponseRestaurantData.RestaurantData>) {
         val eatsRestaurantAdapter = EatsRestaurantAdapter()
-        eatsRestaurantAdapter.initItemList(viewModel.getRestaurantData())
         binding.rvEatsRestaurantList.adapter = eatsRestaurantAdapter
+
+        if (data != null) {
+            eatsRestaurantAdapter.initItemList(
+                data.map { EatsRestaurantItemData(
+                    it.image,
+                    it.name,
+                    it.deliveryTime,
+                    it.rating,
+                    it.comments,
+                    it.distance,
+                    it.isFree
+                ) }
+            )
+        }
     }
 
     private fun initChooseRestaurantOptionAdapter() {

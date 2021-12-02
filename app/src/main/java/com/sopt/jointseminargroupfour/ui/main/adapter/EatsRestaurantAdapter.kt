@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.sopt.jointseminargroupfour.R
 import com.sopt.jointseminargroupfour.databinding.ItemRestaurantListBinding
 import com.sopt.jointseminargroupfour.databinding.ItemSeeMoreBinding
@@ -58,6 +59,9 @@ class EatsRestaurantAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: EatsRestaurantItemData) {
             binding.data = item
+            Glide.with(binding.ivRestaurantImage)
+                .load(item.image)
+                .into(binding.ivRestaurantImage)
         }
     }
 

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="data"
             type="com.sopt.jointseminargroupfour.ui.main.adapter.EatsRestaurantItemData" />
@@ -21,7 +20,6 @@
             android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:src="@{data.image}"
             tools:src="@drawable/img_store_1" />
 
         <ImageView
@@ -51,7 +49,8 @@
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{data.time}"
+            android:layout_marginRight="4dp"
+            android:text="@{String.valueOf(data.deliveryTime) + '~' + String.valueOf(data.deliveryTime+5) + '분'}"
             android:textColor="#232a35"
             android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_restaurant_name"
@@ -70,17 +69,42 @@
             app:layout_constraintTop_toBottomOf="@id/tv_restaurant_name" />
 
         <TextView
-            android:id="@+id/tv_rate_and_distance"
+            android:id="@+id/tv_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="@{data.rateAndDistance}"
             android:textColor="#232a35"
             android:textSize="11sp"
+            android:text="@{String.valueOf(data.rating)}"
             app:layout_constraintBottom_toBottomOf="@id/iv_star"
             app:layout_constraintStart_toEndOf="@id/iv_star"
             app:layout_constraintTop_toTopOf="@id/iv_star"
-            tools:text="4.8(4,805)  2.2km" />
+            tools:text="4.8" />
+
+        <TextView
+            android:id="@+id/tv_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textColor="#232a35"
+            android:textSize="11sp"
+            android:text="@{'(' + String.valueOf(data.comments) + ')'}"
+            app:layout_constraintBottom_toBottomOf="@id/tv_rate"
+            app:layout_constraintStart_toEndOf="@id/tv_rate"
+            app:layout_constraintTop_toTopOf="@id/tv_rate"
+            tools:text="(4,805)" />
+
+        <TextView
+            android:id="@+id/tv_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:text="@{String.valueOf(data.distance)+'k'+'m'}"
+            android:textColor="#232a35"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_comments"
+            tools:text="2.2km" />
 
         <TextView
             android:id="@+id/tv_free_delivery_chip"
