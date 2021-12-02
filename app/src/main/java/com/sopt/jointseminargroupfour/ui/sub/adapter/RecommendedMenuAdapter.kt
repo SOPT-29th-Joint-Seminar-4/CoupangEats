@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.sopt.jointseminargroupfour.data.MenuResponse
 import com.sopt.jointseminargroupfour.databinding.ItemRecommendedMenuListBinding
 
 class RecommendedMenuAdapter(
     private val likeButtonClickListener: (Int) -> Unit
 ) :
     RecyclerView.Adapter<RecommendedMenuAdapter.RecommendedMenuViewHolder>() {
-    val recommendedMenuList = mutableListOf<RecommendedMenuItemData>()
+    val recommendedMenuList = mutableListOf<MenuResponse.MenuData>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -43,15 +44,15 @@ class RecommendedMenuAdapter(
             }
         }
 
-        fun onBind(data: RecommendedMenuItemData) {
+        fun onBind(data: MenuResponse.MenuData) {
             Glide.with(binding.ivMenu)
                 .load(data.image)
                 .into(binding.ivMenu)
 
-            binding.tvRestaurant.text = data.restaurant
+            binding.tvRestaurant.text = data.name
             binding.tvMenu.text = data.menu
-            binding.tvSatisfyingMenu.text = data.satisfyingMenu
-            binding.tvPrice.text = data.price
+            binding.tvSatisfyingMenu.text = data.likes.toString() + "명이 만족한 메뉴"
+            binding.tvPrice.text = data.price.toString() + "원"
             binding.tvDescription.text = data.description
         }
     }
