@@ -49,19 +49,22 @@ class EatsRestaurantAdapter :
 
     override fun getItemViewType(position: Int) = itemList[position].itemViewType.ordinal
 
-    fun initItemList(newList: List<EatsRestaurantItemData>) {
+    fun initItemList(List: List<EatsRestaurantItemData>, List2: List<EatsRestaurantItemData>) {
         itemList.clear()
-        itemList.addAll(newList)
+        itemList.addAll(List)
+        itemList.add(List2[0])
         notifyDataSetChanged()
+
     }
 
     class EatsRestaurantViewHolder(private val binding: ItemRestaurantListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: EatsRestaurantItemData) {
+        fun bind(item: EatsRestaurantItemData){
             binding.data = item
             Glide.with(binding.ivRestaurantImage)
                 .load(item.image)
                 .into(binding.ivRestaurantImage)
+
         }
     }
 

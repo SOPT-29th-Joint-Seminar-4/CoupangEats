@@ -15,7 +15,7 @@ import com.sopt.jointseminargroupfour.util.BaseView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+import kotlin.math.E
 
 
 class MainActivity : BaseView.BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -60,19 +60,29 @@ class MainActivity : BaseView.BaseActivity<ActivityMainBinding>(R.layout.activit
         val eatsRestaurantAdapter = EatsRestaurantAdapter()
         binding.rvEatsRestaurantList.adapter = eatsRestaurantAdapter
 
-        if (data != null) {
-            eatsRestaurantAdapter.initItemList(
-                data.map { EatsRestaurantItemData(
-                    it.image,
-                    it.name,
-                    it.deliveryTime,
-                    it.rating,
-                    it.comments,
-                    it.distance,
-                    it.isFree
-                ) }
-            )
-        }
+        eatsRestaurantAdapter.initItemList(
+
+            data.map { EatsRestaurantItemData(
+                it.image,
+                it.name,
+                it.deliveryTime,
+                it.rating,
+                it.comments,
+                it.distance,
+                it.isFree,
+            ) },
+
+            data.map { EatsRestaurantItemData(
+                it.image,
+                it.name,
+                it.deliveryTime,
+                it.rating,
+                it.comments,
+                it.distance,
+                it.isFree,
+                itemViewType = EatsRestaurantViewType.SEE_MORE
+            ) },
+        )
     }
 
     private fun initChooseRestaurantOptionAdapter() {
