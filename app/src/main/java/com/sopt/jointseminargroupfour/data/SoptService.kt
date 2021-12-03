@@ -1,5 +1,10 @@
 package com.sopt.jointseminargroupfour.data
 
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Headers
+import retrofit2.http.PUT
+import retrofit2.http.Path
 import androidx.annotation.MenuRes
 import retrofit2.Call
 import retrofit2.http.*
@@ -49,9 +54,12 @@ interface SoptService {
         @Path("shopId") shopId: Int
     ): ModifyFavoriteShopResponse
 
-    // 메뉴 조회
+    @Headers("Content-Type: application/json")
+    @GET("shop")
+    fun getShop() : Call<ResponseRestaurantData>
+
+  // 메뉴 조회
     @Headers("Contet-Type: application/json")
     @GET("menu")
     fun getMenu() : Call<MenuResponse>
-
 }
